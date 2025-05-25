@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36121.58 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouTubeSessionGenerator", "YouTubeSessionGenerator\YouTubeSessionGenerator.csproj", "{D4B48046-4B7A-4D65-B391-DA4970713D4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouTubeSessionGenerator.Tests", "YouTubeSessionGenerator.Tests\YouTubeSessionGenerator.Tests.csproj", "{9AAF1187-EB08-4C61-BD44-48347BFA2B5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4B48046-4B7A-4D65-B391-DA4970713D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B48046-4B7A-4D65-B391-DA4970713D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B48046-4B7A-4D65-B391-DA4970713D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B48046-4B7A-4D65-B391-DA4970713D4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AAF1187-EB08-4C61-BD44-48347BFA2B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AAF1187-EB08-4C61-BD44-48347BFA2B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AAF1187-EB08-4C61-BD44-48347BFA2B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AAF1187-EB08-4C61-BD44-48347BFA2B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25D05C51-6F11-4B07-88E6-7BCC3D8BF678}
+	EndGlobalSection
+EndGlobal
