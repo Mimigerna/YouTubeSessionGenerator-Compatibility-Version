@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text.Json;
 
-namespace YouTubeSessionGenerator.Js;
+namespace YouTubeSessionGenerator.Js.Environments;
 
 /// <summary>
 /// Represents an execution environment capable of running JavaScript code powered by a Node.js process.
@@ -89,7 +89,6 @@ public class NodeEnvironment : IJsEnvironment
         Dispose(false);
     }
 
-
     /// <summary>
     /// Releases the unmanaged resources used by the <see cref="NodeEnvironment"/> and optionally releases managed resources.
     /// </summary>
@@ -104,17 +103,19 @@ public class NodeEnvironment : IJsEnvironment
         {
             try
             {
+                // Unmanaged
                 JsScript script = new("process.exit();");
                 string json = JsonSerializer.Serialize(script);
 
                 input.WriteLine(json);
                 input.Flush();
+
+                node.WaitForExit(1000);
             }
             catch
             { }
 
-            node.WaitForExit(1000);
-
+            // Managed
             input?.Dispose();
             output?.Dispose();
             node?.Dispose();

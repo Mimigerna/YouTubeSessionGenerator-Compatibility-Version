@@ -1,4 +1,5 @@
 ﻿using YouTubeSessionGenerator.Js;
+using YouTubeSessionGenerator.Js.Environments;
 
 namespace YouTubeSessionGenerator.Tests.Js;
 
