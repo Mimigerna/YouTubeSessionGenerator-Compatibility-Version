@@ -10,7 +10,7 @@
 /// <param name="args">An optional array of arguments that can be referenced within the script using <c>args</c>.</param>
 public class JsScript(
     string code,
-    object[]? args = null)
+    object?[]? args = null)
 {
     /// <summary>
     /// The JavaScript code to execute.
@@ -20,5 +20,5 @@ public class JsScript(
     /// <summary>
     /// The arguments that will be available to the script as the <c>args</c> variable.
     /// </summary>
-    public object[] Args { get; set; } = args ?? [];
+    public object?[] Args { get; set; } = args ?? [];
 }

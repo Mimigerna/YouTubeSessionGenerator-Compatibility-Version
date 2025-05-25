@@ -12,6 +12,7 @@ public interface IJsEnvironment : IDisposable
     /// <returns>
     /// The result as a JSON-serializable string or <c>null</c> if no result was produced.
     /// </returns>
+    /// <exception cref="JsException">Occurs when the JavaScript code throws an error.</exception>
     Task<string?> ExecuteAsync(
         JsScript script);
 }

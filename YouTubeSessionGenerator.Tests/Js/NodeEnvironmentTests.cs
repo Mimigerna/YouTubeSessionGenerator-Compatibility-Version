@@ -9,7 +9,7 @@ public class NodeEnvironmentTests
     public void Should_run_code()
     {
         // Arrange
-        IJsEnvironment environment = new NodeEnvironment();
+        NodeEnvironment environment = new();
         JsScript script = new("6 + 4;");
 
         // Act
@@ -31,21 +31,25 @@ public class NodeEnvironmentTests
     public void Should_have_context()
     {
         // Arrange
-        IJsEnvironment environment = new NodeEnvironment();
+        NodeEnvironment environment = new();
         JsScript script = new("args[0] * 2 + args[1];", [ 21, 56 ]);
+        JsScript script2 = new("args[1] * 2 + args[0];", [ 21, 56 ]);
 
         // Act
-        string? response = null;
+        string? response1 = null;
+        string? response2 = null;
 
         Assert.DoesNotThrowAsync(async () =>
         {
-            response = await environment.ExecuteAsync(script);
+            response1 = await environment.ExecuteAsync(script);
+            response2 = await environment.ExecuteAsync(script2);
         });
 
         // Assert
         Assert.Multiple(() =>
         {
-            Assert.That(response, Is.EqualTo("98"));
+            Assert.That(response1, Is.EqualTo("98"));
+            Assert.That(response2, Is.EqualTo("133"));
         });
     }
 
@@ -53,7 +57,7 @@ public class NodeEnvironmentTests
     public void Should_keep_context()
     {
         // Arrange
-        IJsEnvironment environment = new NodeEnvironment();
+        NodeEnvironment environment = new();
         JsScript firstScript = new("var someProperty = \"hii\";");
         JsScript secondScript = new("someProperty += \" -haii back\";");
 
@@ -74,10 +78,41 @@ public class NodeEnvironmentTests
     }
 
     [Test]
+    public void Should_have_dom()
+    {
+        // Arrange
+        NodeEnvironment environment = new();
+        JsScript script = new("""
+            document.body.innerHTML = '<div class="container"></div>';
+
+            const container = document.querySelector('.container');
+            const button = document.createElement('button');
+
+            container.appendChild(button);
+
+            document.body.innerHTML;
+            """);
+
+        // Act
+        string? response = null;
+
+        Assert.DoesNotThrowAsync(async () =>
+        {
+            response = await environment.ExecuteAsync(script);
+        });
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(response, Is.EqualTo("<div class=\"container\"><button></button></div>"));
+        });
+    }
+
+    [Test]
     public void Should_throw_custom_error()
     {
         // Arrange
-        IJsEnvironment environment = new NodeEnvironment();
+        NodeEnvironment environment = new();
         JsScript script = new("throw new Error(\"BOOM\");");
 
         // Act
@@ -94,7 +129,7 @@ public class NodeEnvironmentTests
     public void Should_throw_on_invalid_js()
     {
         // Arrange
-        IJsEnvironment environment = new NodeEnvironment();
+        NodeEnvironment environment = new();
         JsScript script = new("var = = 5");
 
         // Act
@@ -110,7 +145,7 @@ public class NodeEnvironmentTests
     [Test]
     public void Should_terminate_process_on_dispose()
     {
-        IJsEnvironment environment = new NodeEnvironment();
+        NodeEnvironment environment = new();
 
         environment.Dispose();
 
