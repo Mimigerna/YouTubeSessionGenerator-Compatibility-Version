@@ -32,4 +32,40 @@ internal static class Extensions
 
         return null;
     }
+
+
+    public static byte[] ToBytesFromBase64(
+        this string base64)
+    {
+        string base64Mod = base64
+            .Replace('-', '+')
+            .Replace('_', '/');
+
+        switch (base64Mod.Length % 4)
+        {
+            case 2:
+                base64Mod += "==";
+                break;
+            case 3:
+                base64Mod += "=";
+                break;
+        }
+
+        return Convert.FromBase64String(base64Mod);
+    }
+
+    public static string ToBase64FromBytes(
+        this byte[] bytes,
+        bool base64url = false)
+    {
+        string base64 = Convert.ToBase64String(bytes);
+
+        if (base64url)
+            base64 = base64
+                .Replace('+', '-')
+                .Replace('/', '_')
+                .TrimEnd('=');
+
+        return base64;
+    }
 }

@@ -5,9 +5,8 @@
 /// </summary>
 internal static class Endpoints
 {
-    /// <summary>
-    /// The base URL for the YouTube API.
-    /// </summary>
+    const string YouTubeUrl = "https://www.youtube.com";
+
     const string YouTubeApiBaseUrl = "https://www.youtube.com/api/jnn/v1";
 
 
@@ -20,4 +19,11 @@ internal static class Endpoints
     /// The URL to generate a Proof of Origin Token (PoToken).
     /// </summary>
     public const string GenerateItUrl = YouTubeApiBaseUrl + "/GenerateIT";
+
+    /// <summary>
+    /// The URL for an embedded YouTube video.
+    /// </summary>
+    /// <param name="videoId">The ID of the video to embed.</param>
+    /// <returns>The URL to the embedded YouTube video</returns>
+    public static string Embed(string videoId) => $"{YouTubeUrl}/embed/{videoId}";
 }

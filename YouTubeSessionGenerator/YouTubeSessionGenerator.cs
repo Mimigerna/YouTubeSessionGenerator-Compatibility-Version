@@ -2,7 +2,9 @@
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Text.RegularExpressions;
 using YouTubeSessionGenerator.BotGuard;
+using YouTubeSessionGenerator.Js;
 using YouTubeSessionGenerator.Utils;
 
 namespace YouTubeSessionGenerator;
@@ -34,41 +36,94 @@ public class YouTubeSessionGenerator
     public YouTubeSessionConfig Config { get; }
 
 
-    /// <summary>
-    /// Generates a valid Proof of Origin Token (PoToken) for a YouTube session.
-    /// </summary>
-    /// <param name="cancellationToken">The token to cancel this task.</param>
-    /// <returns>The valid Proof of Origin Token.</returns>
+
+    /// <exception cref="InvalidDataException">Occurs when the visitor data could not be extracted from the HTML content.</exception>"
     /// <exception cref="HttpRequestException">Occurs when the HTTP request fails.</exception>"
-    /// <exception cref="JsonException">Occurs when the JSON could not be deseriealized.</exception>"
     /// <exception cref="OperationCanceledException">Occurs when this task was cancelled.</exception>
-    public async Task<string> CreateProofOfOriginTokenAsync(
+    async Task<string> ExtractContextPropertyAsync(
+        string property,
         CancellationToken cancellationToken = default)
     {
-        // Create BotGuard challenge
-        Config.Logger?.LogInformation("[YouTubeSessionGenerator-CreateProofOfOriginTokenAsync] Creating BotGuard challenge...");
+        HttpRequestMessage request = new(HttpMethod.Get, Endpoints.Embed("um0ETkJABmI"));
+        HttpResponseMessage respone = await Config.HttpClient.SendAsync(request, cancellationToken).ConfigureAwait(false);
 
-        HttpRequestMessage challengeRequest = new(HttpMethod.Post, Endpoints.CreateUrl)
-        {
-            Content = new StringContent($"[ \"{Keys.RequestKey}\" ]", Encoding.UTF8, "application/json+protobuf"),
-            Headers =
-            {
-                { "x-goog-api-key", Keys.GoogleApiKey },
-                { "x-user-agent", Keys.GoogleUserAgent }
-            }
-        };
-        HttpResponseMessage challengeResponse = await Config.HttpClient.SendAsync(challengeRequest, cancellationToken);
+        respone.EnsureSuccessStatusCode();
+        string responseHtml = await respone.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-        challengeResponse.EnsureSuccessStatusCode();
-        string challengeResponseBody = await challengeResponse.Content.ReadAsStringAsync();
+        Match match = Regex.Match(responseHtml, $"\"{property}\":\"([^\"]+)");
+        if (!match.Success)
+            throw new InvalidDataException("Visitor data could not be extracted from the HTML content.");
 
-        BotGuardChallenge challenge = BotGuardChallenge.Parse(challengeResponseBody);
+        return match.Groups[1].Value;
+    }
+
+
+    /// <summary>
+    /// Generates Visitor Data for a YouTube session.
+    /// </summary>
+    /// <param name="cancellationToken">The token to cancel this task.</param>
+    /// <returns>The Visitor Data</returns>
+    /// <exception cref="InvalidDataException">Occurs when the visitor data could not be extracted from the HTML content.</exception>"
+    /// <exception cref="HttpRequestException">Occurs when the HTTP request fails.</exception>"
+    /// <exception cref="OperationCanceledException">Occurs when this task was cancelled.</exception>
+    public Task<string> CreateVisitorDataAsync(
+        CancellationToken cancellationToken = default) =>
+        ExtractContextPropertyAsync("visitorData", cancellationToken);
+
+    /// <summary>
+    /// Generates rollout token for a YouTube session.
+    /// </summary>
+    /// <param name="cancellationToken">The token to cancel this task.</param>
+    /// <returns>The rollout token</returns>
+    /// <exception cref="InvalidDataException">Occurs when the visitor data could not be extracted from the HTML content.</exception>"
+    /// <exception cref="HttpRequestException">Occurs when the HTTP request fails.</exception>"
+    /// <exception cref="OperationCanceledException">Occurs when this task was cancelled.</exception>
+    public Task<string> CreateRolloutTokenAsync(
+        CancellationToken cancellationToken = default) =>
+        ExtractContextPropertyAsync("rolloutToken", cancellationToken);
+
+    /// <summary>
+    /// Generates a Proof of Origin Token (PoToken) for a YouTube session.
+    /// </summary>
+    /// <param name="visitorData">The Visitor Data connected to this proof of origin token.</param>
+    /// <param name="cancellationToken">The token to cancel this task.</param>
+    /// <returns>The Proof of Origin Token.</returns>
+    /// <exception cref="HttpRequestException">Occurs when the HTTP request fails.</exception>"
+    /// <exception cref="JsonException">Occurs when the JSON could not be deseriealized.</exception>"
+    /// <exception cref="BotGuardException">Occurs when the internal BotGuard client failes to produce a result.</exception>
+    /// <exception cref="JsException">Occurs when the JavaScript environment throws an error.</exception>
+    /// <exception cref="OperationCanceledException">Occurs when this task was cancelled.</exception>
+    public async Task<string> CreateProofOfOriginTokenAsync(
+        string visitorData,
+        CancellationToken cancellationToken = default)
+    {
+        //// Create BotGuard challenge
+        //Config.Logger?.LogInformation("[YouTubeSessionGenerator-CreateProofOfOriginTokenAsync] Creating BotGuard challenge...");
+
+        //HttpRequestMessage challengeRequest = new(HttpMethod.Post, Endpoints.CreateUrl)
+        //{
+        //    Content = new StringContent($"[ \"{Keys.RequestKey}\" ]", Encoding.UTF8, "application/json+protobuf"),
+        //    Headers =
+        //    {
+        //        { "x-goog-api-key", Keys.GoogleApiKey },
+        //        { "x-user-agent", Keys.GoogleUserAgent }
+        //    }
+        //};
+        //HttpResponseMessage challengeResponse = await Config.HttpClient.SendAsync(challengeRequest, cancellationToken);
+
+        //challengeResponse.EnsureSuccessStatusCode();
+        //string challengeResponseBody = await challengeResponse.Content.ReadAsStringAsync(cancellationToken);
+
+        //BotGuardChallenge challenge = BotGuardChallenge.Parse(challengeResponseBody);
+
+        BotGuardChallenge challenge = new("", "", File.ReadAllText("C:\\Users\\User69\\Desktop\\program.txt"), "trayride", "", new(File.ReadAllText("C:\\Users\\User69\\Desktop\\interpreterJavascript.txt"), ""));
+
 
         // Prepare JS environment
         Config.Logger?.LogInformation("[YouTubeSessionGenerator-CreateProofOfOriginTokenAsync] Preparing JavaScript environment...");
 
         if (botGuardClient is null)
-            throw new InvalidOperationException("JavaScript environment is not configured.");
+            throw new JsonException("JavaScript environment is not configured.");
 
         await botGuardClient.LoadAsync(challenge.InterpreterJs.PrivateDoNotAccessOrElseSafeScriptWrappedValue, challenge.Program, challenge.GlobalName);
         string botguardResponse = await botGuardClient.SnapshotAsync();
@@ -79,21 +134,28 @@ public class YouTubeSessionGenerator
 
         HttpRequestMessage itRequest = new(HttpMethod.Post, Endpoints.GenerateItUrl)
         {
-            Content = new StringContent($"[\"{Keys.RequestKey}\", \"{botguardResponse}\"]", Encoding.UTF8, "application/json+protobuf"),
+            Content = new StringContent($"[ \"{Keys.RequestKey}\", \"{botguardResponse}\" ]", Encoding.UTF8, "application/json+protobuf"),
             Headers =
             {
                 { "x-goog-api-key", Keys.GoogleApiKey },
                 { "x-user-agent", Keys.GoogleUserAgent },
             }
         };
-        HttpResponseMessage itResponse = await Config.HttpClient.SendAsync(itRequest);
+        HttpResponseMessage itResponse = await Config.HttpClient.SendAsync(itRequest, cancellationToken);
 
         itResponse.EnsureSuccessStatusCode();
-        string itResponseBody = await itResponse.Content.ReadAsStringAsync();
+        string itResponseBody = await itResponse.Content.ReadAsStringAsync(cancellationToken);
 
-        JsonArray itResponseRawData = JsonSerializer.Deserialize<JsonArray>(itResponseBody) ?? throw new InvalidOperationException("Failed to deserialize integrity token.");
-        string integrityToken = itResponseRawData[0]?.GetValue<string>() ?? throw new InvalidOperationException("Integrity token is null.");
+        JsonArray itResponseRawData = JsonSerializer.Deserialize<JsonArray>(itResponseBody) ?? throw new JsonException("Failed to deserialize integrity token.");
+        string integrityToken = itResponseRawData[0]?.GetValue<string>() ?? throw new JsonException("Integrity token is null.");
 
-        return "";
+        // Mint poToken
+        byte[] integrityTokenBytes = integrityToken.ToBytesFromBase64();
+        await botGuardClient.LoadMintAsync(integrityTokenBytes);
+
+        byte[] poTokenBytes = await botGuardClient.MintAsync(visitorData);
+        string poToken = poTokenBytes.ToBase64FromBytes(true);
+
+        return poToken;
     }
 }
