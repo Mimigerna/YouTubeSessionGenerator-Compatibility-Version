@@ -1,4 +1,5 @@
 .vs/
+.vscode/
 packages/
 
 *.suo
@@ -6,6 +7,9 @@ packages/
 _ReSharper.*
 
 Development/
+
+jsdom-bundle/node_modules/
+jsdom-bundle/dist/
 
 YouTubeSessionGenerator/bin/
 YouTubeSessionGenerator/obj/
