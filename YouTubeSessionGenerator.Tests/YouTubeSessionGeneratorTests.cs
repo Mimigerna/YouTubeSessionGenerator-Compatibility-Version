@@ -54,10 +54,7 @@ public class YouTubeSessionGeneratorTests
         });
 
         // Assert
-        Assert.Multiple(() =>
-        {
-            Assert.That(visitorData, Is.Not.Null.Or.Empty);
-        });
+        Assert.That(visitorData, Is.Not.Null.Or.Empty);
 
         // Output
         TestContext.Out.WriteLine("Visitor Data: {0}", visitorData);
@@ -78,10 +75,7 @@ public class YouTubeSessionGeneratorTests
         });
 
         // Assert
-        Assert.Multiple(() =>
-        {
-            Assert.That(rolloutToken, Is.Not.Null.Or.Empty);
-        });
+        Assert.That(rolloutToken, Is.Not.Null.Or.Empty);
 
         // Output
         TestContext.Out.WriteLine("Rollout Token: {0}", rolloutToken);
@@ -106,10 +100,7 @@ public class YouTubeSessionGeneratorTests
         });
 
         // Assert
-        Assert.Multiple(() =>
-        {
-            Assert.That(proofOfOriginToken, Is.Not.Null.Or.Empty);
-        });
+        Assert.That(proofOfOriginToken, Is.Not.Null.Or.Empty);
 
         // Output
         TestContext.Out.WriteLine("Proof Of Origin Token: {0}", proofOfOriginToken);

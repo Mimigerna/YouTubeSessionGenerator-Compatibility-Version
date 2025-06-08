@@ -21,10 +21,7 @@ public class NodeEnvironmentTests
         });
 
         // Assert
-        Assert.Multiple(() =>
-        {
-            Assert.That(response, Is.EqualTo("10"));
-        });
+        Assert.That(response, Is.EqualTo("10"));
     }
     
     [Test]
@@ -71,10 +68,7 @@ public class NodeEnvironmentTests
         });
 
         // Assert
-        Assert.Multiple(() =>
-        {
-            Assert.That(response, Is.EqualTo("hii -haii back"));
-        });
+        Assert.That(response, Is.EqualTo("hii -haii back"));
     }
 
     [Test]
@@ -102,10 +96,7 @@ public class NodeEnvironmentTests
         });
 
         // Assert
-        Assert.Multiple(() =>
-        {
-            Assert.That(response, Is.EqualTo("<div class=\"container\"><button></button></div>"));
-        });
+        Assert.That(response, Is.EqualTo("<div class=\"container\"><button></button></div>"));
     }
 
     [Test]
@@ -145,10 +136,13 @@ public class NodeEnvironmentTests
     [Test]
     public void Should_terminate_process_on_dispose()
     {
+        // Arrange
         NodeEnvironment environment = new();
 
+        // Act
         environment.Dispose();
 
+        // Assert
         Assert.That(() => environment, Throws.Nothing);
     }
 }

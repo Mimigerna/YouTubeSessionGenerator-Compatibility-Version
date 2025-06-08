@@ -19,10 +19,7 @@ public class BrotliTests
         });
 
         // Assert
-        Assert.Multiple(() =>
-        {
-            Assert.That(result, Is.EqualTo("GzoAcBypU587dC0U9ianQOjSJY0NNuDAoZeURhw24JgTCTBdbr2oSLmS7LiONZ97EAI="));
-        });
+        Assert.That(result, Is.EqualTo("GzoAcBypU587dC0U9ianQOjSJY0NNuDAoZeURhw24JgTCTBdbr2oSLmS7LiONZ97EAI="));
 
         // Output
         TestContext.Out.WriteLine("Result: {0}", result);
@@ -44,10 +41,7 @@ public class BrotliTests
         });
 
         // Assert
-        Assert.Multiple(() =>
-        {
-            Assert.That(result, Is.EqualTo("This is a test string to compress using Brotli compression."));
-        });
+        Assert.That(result, Is.EqualTo("This is a test string to compress using Brotli compression."));
 
         // Output
         TestContext.Out.WriteLine("Result: {0}", result);
