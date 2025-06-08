@@ -97,27 +97,24 @@ public class YouTubeSessionGenerator
         string visitorData,
         CancellationToken cancellationToken = default)
     {
-        //// Create BotGuard challenge
-        //Config.Logger?.LogInformation("[YouTubeSessionGenerator-CreateProofOfOriginTokenAsync] Creating BotGuard challenge...");
+        // Create BotGuard challenge
+        Config.Logger?.LogInformation("[YouTubeSessionGenerator-CreateProofOfOriginTokenAsync] Creating BotGuard challenge...");
 
-        //HttpRequestMessage challengeRequest = new(HttpMethod.Post, Endpoints.CreateUrl)
-        //{
-        //    Content = new StringContent($"[ \"{Keys.RequestKey}\" ]", Encoding.UTF8, "application/json+protobuf"),
-        //    Headers =
-        //    {
-        //        { "x-goog-api-key", Keys.GoogleApiKey },
-        //        { "x-user-agent", Keys.GoogleUserAgent }
-        //    }
-        //};
-        //HttpResponseMessage challengeResponse = await Config.HttpClient.SendAsync(challengeRequest, cancellationToken);
+        HttpRequestMessage challengeRequest = new(HttpMethod.Post, Endpoints.CreateUrl)
+        {
+            Content = new StringContent($"[ \"{Keys.RequestKey}\" ]", Encoding.UTF8, "application/json+protobuf"),
+            Headers =
+            {
+                { "x-goog-api-key", Keys.GoogleApiKey },
+                { "x-user-agent", Keys.GoogleUserAgent }
+            }
+        };
+        HttpResponseMessage challengeResponse = await Config.HttpClient.SendAsync(challengeRequest, cancellationToken);
 
-        //challengeResponse.EnsureSuccessStatusCode();
-        //string challengeResponseBody = await challengeResponse.Content.ReadAsStringAsync(cancellationToken);
+        challengeResponse.EnsureSuccessStatusCode();
+        string challengeResponseBody = await challengeResponse.Content.ReadAsStringAsync(cancellationToken);
 
-        //BotGuardChallenge challenge = BotGuardChallenge.Parse(challengeResponseBody);
-
-        BotGuardChallenge challenge = new("", "", File.ReadAllText("C:\\Users\\User69\\Desktop\\program.txt"), "trayride", "", new(File.ReadAllText("C:\\Users\\User69\\Desktop\\interpreterJavascript.txt"), ""));
-
+        BotGuardChallenge challenge = BotGuardChallenge.Parse(challengeResponseBody);
 
         // Prepare JS environment
         Config.Logger?.LogInformation("[YouTubeSessionGenerator-CreateProofOfOriginTokenAsync] Preparing JavaScript environment...");
