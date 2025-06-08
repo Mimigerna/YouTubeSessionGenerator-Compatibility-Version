@@ -39,7 +39,7 @@ internal class BotGuardChallenge(
         JsonArray? challengeData = null;
         if (rawData[1]?.GetValue<string>() is string str)
         {
-            byte[] buffer = Convert.FromBase64String(str);
+            byte[] buffer = str.ToBytesFromBase64();
             byte[] descrambled = [.. buffer.Select(b => (byte)(b + 97))];
             string unscrambled = Encoding.UTF8.GetString(descrambled);
 
