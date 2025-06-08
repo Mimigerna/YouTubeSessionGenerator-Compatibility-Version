@@ -90,6 +90,7 @@ public class YouTubeSessionGenerator
     /// <returns>The Proof of Origin Token.</returns>
     /// <exception cref="HttpRequestException">Occurs when the HTTP request fails.</exception>"
     /// <exception cref="JsonException">Occurs when the JSON could not be deseriealized.</exception>"
+    /// <exception cref="InvalidOperationException">Occurs when the BotGuard client is not configured due to no JavaScript environment being provided.</exception>
     /// <exception cref="BotGuardException">Occurs when the internal BotGuard client failes to produce a result.</exception>
     /// <exception cref="JsException">Occurs when the JavaScript environment throws an error.</exception>
     /// <exception cref="OperationCanceledException">Occurs when this task was cancelled.</exception>
@@ -97,6 +98,9 @@ public class YouTubeSessionGenerator
         string visitorData,
         CancellationToken cancellationToken = default)
     {
+        if (botGuardClient is null)
+            throw new InvalidOperationException("BotGuard client is not configured. Please provide a JavaScript environment.");
+
         // Create BotGuard challenge
         Config.Logger?.LogInformation("[YouTubeSessionGenerator-CreateProofOfOriginTokenAsync] Creating BotGuard challenge...");
 
@@ -118,9 +122,6 @@ public class YouTubeSessionGenerator
 
         // Prepare JS environment
         Config.Logger?.LogInformation("[YouTubeSessionGenerator-CreateProofOfOriginTokenAsync] Preparing JavaScript environment...");
-
-        if (botGuardClient is null)
-            throw new JsonException("JavaScript environment is not configured.");
 
         await botGuardClient.LoadAsync(challenge.InterpreterJs.PrivateDoNotAccessOrElseSafeScriptWrappedValue, challenge.Program, challenge.GlobalName);
         string botguardResponse = await botGuardClient.SnapshotAsync();
