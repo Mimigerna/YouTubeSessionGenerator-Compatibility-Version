@@ -1,0 +1,29 @@
+#main-description {
+    margin: 0 0 0rem 0;
+}
+
+.highlighted {
+    background-color: #211F2E !important;
+}
+
+.vp-hero-title {
+    background: linear-gradient(120deg, var(--vp-c-accent-hover), var(--vp-c-accent) 30%, var(--vp-c-accent-text) 100%);
+    background-clip: text;
+}
+
+.vp-hero-action.primary {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.vp-hero-image {
+    max-height: 14rem;
+}
+
+.vp-hero-info {
+    margin: 4rem 0 0 0;
+}
+
+table {
+    display: block;
+    width: 100%;
+}

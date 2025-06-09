@@ -1,0 +1,22 @@
+{
+  "name": "youtube-session-generator",
+  "description": "References & Guides for using YouTubeSessionGenerator - Generate valid trusted sessions for YouTube including VisitorData, PoTokens & RolloutTokens.",
+  "version": "1.0.0",
+  "license": "GPL-3.0",
+  "type": "module",
+  "scripts": {
+    "docs:build": "vuepress-vite build src",
+    "docs:clean-dev": "vuepress-vite dev src --clean-cache",
+    "docs:dev": "vuepress-vite dev src",
+    "docs:update-package": "npx vp-update"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.79.4",
+    "@vuepress/bundler-vite": "2.0.0-rc.17",
+    "@vuepress/plugin-search": "^2.0.0-rc.52",
+    "@vuepress/plugin-shiki": "^2.0.0-rc.52",
+    "vue": "^3.5.11",
+    "vuepress": "2.0.0-rc.17",
+    "vuepress-theme-hope": "2.0.0-rc.58"
+  }
+}

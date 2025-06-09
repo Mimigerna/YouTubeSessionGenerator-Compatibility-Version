@@ -8,6 +8,11 @@ _ReSharper.*
 
 Development/
 
+docs/node_modules/
+docs/src/.vuepress/dist/
+docs/src/.vuepress/.temp/
+docs/src/.vuepress/.cache/
+
 jsdom-bundle/node_modules/
 jsdom-bundle/dist/
 
