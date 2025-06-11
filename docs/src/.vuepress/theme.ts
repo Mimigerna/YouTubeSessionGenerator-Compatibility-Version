@@ -24,7 +24,6 @@ export default hopeTheme({
   displayFooter: true,
   breadcrumb: false,
 
-
   plugins: {
     search: {
       locales: {
@@ -33,10 +32,12 @@ export default hopeTheme({
         }
       }
     },
+
     shiki: {
       theme: "tokyo-night",
       notationHighlight: true
     },
+
     mdEnhance: {
       align: true,
       attrs: true,
@@ -64,5 +65,10 @@ export default hopeTheme({
       tasklist: true,
       vPre: true,
     },
+
+    markdownTab: {
+      codeTabs: true,
+      tabs: true
+    }
   }
 });
