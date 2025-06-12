@@ -6,7 +6,7 @@
 public class JsException : Exception
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="JsException"/> class with a specified error message.
+    /// Creates a new instance of the <see cref="JsException"/> class with a specified error message.
     /// </summary>
     /// <param name="message">The message returned by the JavaScript engine.</param>
     /// <param name="script">The original JavaScript script which caused the exception.</param>

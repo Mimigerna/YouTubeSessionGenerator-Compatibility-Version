@@ -11,7 +11,7 @@ namespace YouTubeSessionGenerator.BotGuard;
 /// Represents a client for interacting with the BotGuard anti bot system.
 /// </summary>
 /// <remarks>
-/// Creates a new instance of the <see cref="BotGuardClient"/> class.
+/// Initializes a new instance of the <see cref="BotGuardClient"/> class.
 /// </remarks>
 /// <param name="jsEnvironment">The JavaScript environment used to interact with BotGuard.</param>
 /// <param name="logger">The logger used to provide progress and error messages.</param>

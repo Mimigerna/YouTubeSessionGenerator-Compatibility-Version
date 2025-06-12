@@ -17,7 +17,7 @@ public class YouTubeSessionGenerator
     readonly BotGuardClient? botGuardClient;
 
     /// <summary>
-    /// Creates a new instance of the <see cref="YouTubeSessionGenerator"/> class.
+    /// Initializes a new instance of the <see cref="YouTubeSessionGenerator"/> class.
     /// </summary>
     /// <param name="config">The configuration for this YouTube session generator</param>
     public YouTubeSessionGenerator(

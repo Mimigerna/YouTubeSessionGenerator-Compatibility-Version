@@ -6,6 +6,9 @@ namespace YouTubeSessionGenerator;
 /// <summary>
 /// Contains configuration options for the YouTube session generator.
 /// </summary>
+/// <remarks>
+/// Initializes a new instance of the <see cref="YouTubeSessionConfig"/> class.
+/// </remarks>
 public class YouTubeSessionConfig
 {
     /// <summary>
