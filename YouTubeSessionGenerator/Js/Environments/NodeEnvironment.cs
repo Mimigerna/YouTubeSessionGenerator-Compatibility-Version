@@ -62,14 +62,16 @@ public class NodeEnvironment : IJsEnvironment
     /// <summary>
     /// Initializes a new instance of the <see cref="NodeEnvironment"/> class and starts a Node.js process.
     /// </summary>
-    /// <exception cref="JsException">Thrown if the JavaScript code throws an error.</exception>
-    public NodeEnvironment()
+    /// <param name="fileName">The path to the Node.js executable. Use <c>"node"</c> to rely on the system's PATH.</param>
+    /// <exception cref="JsException">Thrown if the the DOM environment fails to initialize.</exception>
+    public NodeEnvironment(
+        string fileName = "node")
     {
         node = new()
         {
             StartInfo = new ProcessStartInfo
             {
-                FileName = "node",
+                FileName = fileName,
                 Arguments = $"-e \"{ServerScript
                     .Replace("\\", "\\\\")
                     .Replace("\"", "\\\"")
