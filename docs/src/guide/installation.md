@@ -11,19 +11,19 @@ YouTubeSessionGenerator is available as a [NuGet package](https://www.nuget.org/
 @tab .NET CLI
 
 ```bash
-dotnet add package YouTubeSessionGenerator --version XXX.XXX.XXX
+dotnet add package YouTubeSessionGenerator
 ```
 
 @tab Package Manager
 
 ```ps
-NuGet\Install-Package YouTubeSessionGenerator -Version XXX.XXX.XXX
+NuGet\Install-Package YouTubeSessionGenerator
 ```
 
 @tab PackageReference
 
 ```xml
-<PackageReference Include="YouTubeSessionGenerator" Version="XXX.XXX.XXX" />
+<PackageReference Include="YouTubeSessionGenerator" Version="X.X.X" />
 ```
 
 :::
