@@ -86,6 +86,7 @@ public class YouTubeSessionGenerator
     /// Generates a Proof of Origin Token (PoToken) for a YouTube session.
     /// </summary>
     /// <param name="visitorData">The Visitor Data connected to this proof of origin token.</param>
+    /// <param name="contentBinding">The content to which the Proof of Origin token is bound.</param>
     /// <param name="cancellationToken">The token to cancel this task.</param>
     /// <returns>The Proof of Origin Token.</returns>
     /// <exception cref="HttpRequestException">Occurs when the HTTP request fails.</exception>"
@@ -96,6 +97,7 @@ public class YouTubeSessionGenerator
     /// <exception cref="OperationCanceledException">Occurs when this task was cancelled.</exception>
     public async Task<string> CreateProofOfOriginTokenAsync(
         string visitorData,
+        BotGuardContentBinding? contentBinding = null,
         CancellationToken cancellationToken = default)
     {
         if (botGuardClient is null)
@@ -124,7 +126,7 @@ public class YouTubeSessionGenerator
         Config.Logger?.LogInformation("[YouTubeSessionGenerator-CreateProofOfOriginTokenAsync] Preparing JavaScript environment...");
 
         await botGuardClient.LoadAsync(challenge.InterpreterJs.PrivateDoNotAccessOrElseSafeScriptWrappedValue, challenge.Program, challenge.GlobalName);
-        string botguardResponse = await botGuardClient.SnapshotAsync();
+        string botguardResponse = await botGuardClient.SnapshotAsync(contentBinding);
 
 
         // Retrieving Integrity Token

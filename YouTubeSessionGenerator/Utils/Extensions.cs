@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Nodes;
+using YouTubeSessionGenerator.BotGuard;
 
 namespace YouTubeSessionGenerator.Utils;
 
@@ -67,5 +68,26 @@ internal static class Extensions
                 .TrimEnd('=');
 
         return base64;
+    }
+
+
+    public static Dictionary<string, object?> Flatten(
+        this BotGuardContentBinding contentBinding)
+    {
+        Dictionary<string, object?> result = new()
+        {
+            ["c"] = contentBinding.C,
+            ["e"] = contentBinding.E,
+            ["encryptedVideoId"] = contentBinding.EncryptedVideoId,
+            ["externalChannelId"] = contentBinding.ExternalChannelId,
+            ["commentId"] = contentBinding.CommentId,
+            ["atr_challenge"] = contentBinding.AtrChallenge
+        };
+
+        if (contentBinding.AdditionalProperties is not null)
+            foreach (KeyValuePair<string, object> property in contentBinding.AdditionalProperties)
+                result[property.Key] = property.Value;
+
+        return result;
     }
 }

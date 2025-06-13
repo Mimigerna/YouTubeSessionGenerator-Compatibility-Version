@@ -83,7 +83,7 @@ internal class BotGuardClient(
             const webPoSignalOutput = [];
 
             snapFunction([ args[0], args[1], webPoSignalOutput, args[2] ]);
-            """, [ contentBinding, signedTimestamp, skipPrivacyBuffer ]);
+            """, [ contentBinding?.Flatten(), signedTimestamp, skipPrivacyBuffer ]);
 
         string? result = await jsEnvironment.ExecuteAsync(script);
         if (result is null)

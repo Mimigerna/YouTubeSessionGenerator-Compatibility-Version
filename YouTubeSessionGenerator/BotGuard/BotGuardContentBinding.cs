@@ -14,13 +14,13 @@
 /// <param name="atrChallenge">The ATR challenge string.</param>
 /// <param name="additionalProperties">Any additional properties that are not explicitly defined.</param>
 public class BotGuardContentBinding(
-    string? c,
-    string? e,
-    string? encryptedVideoId,
-    string? externalChannelId,
-    string? commentId,
-    string? atrChallenge,
-    Dictionary<string, object>? additionalProperties)
+    string? c = null,
+    string? e = null,
+    string? encryptedVideoId = null,
+    string? externalChannelId = null,
+    string? commentId = null,
+    string? atrChallenge = null,
+    Dictionary<string, object>? additionalProperties = null)
 {
     /// <summary>
     /// The 'c' parameter.
