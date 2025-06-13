@@ -1,7 +1,7 @@
 <table align="center">
   <tr>
     <td>
-      <img align="middle" src="icon.png" alt="Logo" width="80" height="80">
+      <img align="middle" src="YouTubeSessionGenerator/icon.png" alt="Logo" width="80" height="80">
     </td>
     <td>
       <h1>YouTubeSessionGenerator</h1>
