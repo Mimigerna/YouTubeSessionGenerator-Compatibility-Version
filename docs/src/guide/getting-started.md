@@ -43,7 +43,7 @@ string poToken = await generator.CreateProofOfOriginTokenAsync(visitorData);
 
 #### Generate Rollout Token
 ```cs
-string rolloutToken = await generator.CreateRolloutTokenAsync(visitorData);
+string rolloutToken = await generator.CreateRolloutTokenAsync();
 ```
 
 
@@ -72,4 +72,4 @@ This structure is commonly used for requests to endpoints like `browse`, `player
 ## What's Next?
 - Learn about all available config options in the [Configuration guide](configuration.html)
 - Dive deeper into [how the tokens work](../guide/#session-tokens-explained)
-- Explore the [API reference](/YouTubeSessionGenerator/reference/)
+- Explore the [library reference](/YouTubeSessionGenerator/reference/)
