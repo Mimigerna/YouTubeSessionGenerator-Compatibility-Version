@@ -32,7 +32,7 @@ NuGet\Install-Package YouTubeSessionGenerator -Version XXX.XXX.XXX
 ## Prerequisites
 
 - .NET 9.0 or later
-- **Proof of Origin Token** generation requires a JavaScript environment. The built-in `NodeEnvironment` supports Windows, Linux & macOS, but you can plug in your own if needed. [Learn more here](configuration.html)
+- **Proof of Origin Token** generation requires a JavaScript environment. The built-in `NodeEnvironment` supports Windows, Linux & macOS, but you can plug in your own if needed. [Learn more here](configuration.html).
 
 
 ## Optional: Build from Source

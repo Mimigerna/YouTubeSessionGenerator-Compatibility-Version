@@ -7,11 +7,11 @@ heroImage: logo.png
 tagline: Generate valid trusted sessions for YouTube including VisitorData, PoTokens & RolloutTokens.
 actions:
   - text: Getting Started
-    link: /guide/
+    link: /guide/getting-started.html
     type: primary
 
-  - text: Installation
-    link: /guide/installation
+  - text: About
+    link: /guide/
 
 highlights:
   - header: 
