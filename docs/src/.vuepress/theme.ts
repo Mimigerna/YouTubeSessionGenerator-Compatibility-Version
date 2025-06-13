@@ -34,7 +34,7 @@ export default hopeTheme({
     },
 
     shiki: {
-      theme: "tokyo-night",
+      theme: "min-dark",
       notationHighlight: true
     },
 

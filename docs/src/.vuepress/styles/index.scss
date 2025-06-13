@@ -23,6 +23,24 @@
     margin: 4rem 0 0 0;
 }
 
+
+.vp-code-tabs-nav {
+    background: var(--vp-c-bg-elv);
+}
+
+.vp-code-tab-nav {
+    color: var(--vp-c-text);
+}
+
+.vp-code-tab-nav:hover {
+    background: var(--vp-c-bg-soft);
+}
+
+.vp-code-tab-nav.active {
+    background: var(--vp-c-bg-alt);
+}
+
+
 table {
     display: block;
     width: 100%;
