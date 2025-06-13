@@ -16,8 +16,8 @@ public JsScript(
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| `string` code | The JavaScript code to execute. |
-| `Object[]` args | An optional array of arguments that can be referenced within the script using <c>args</c>. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) code | The JavaScript code to execute. |
+| [`object[]`](https://learn.microsoft.com/dotnet/api/system.object) args | An optional array of arguments that can be referenced within the script using <c>args</c>. |
 
 
 
@@ -27,10 +27,10 @@ public JsScript(
 
 ### Code
 The JavaScript code to execute.
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `False`
 
 ### Args
 The arguments that will be available to the script as the <c>args</c> variable.
-- **Type:** [System.Object[]](https://learn.microsoft.com/dotnet/api/system.object)
+- **Type:** [object[]](https://learn.microsoft.com/dotnet/api/system.object)
 - **Is Read Only:** `False`

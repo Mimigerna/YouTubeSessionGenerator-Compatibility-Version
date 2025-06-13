@@ -7,6 +7,7 @@ dir:
 
 
 # YouTubeSessionGenerator\.BotGuard
+Contains models and exceptions related to BotGuard.
 - **Type:** Namespace
 - **Namespace:** [YouTubeSessionGenerator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/)
 

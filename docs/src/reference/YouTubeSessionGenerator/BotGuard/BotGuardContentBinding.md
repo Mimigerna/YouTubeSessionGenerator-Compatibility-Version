@@ -21,13 +21,13 @@ public BotGuardContentBinding(
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| `string` c | The 'c' parameter. |
-| `string` e | The 'e' content binding type. |
-| `string` encryptedVideoId | The encrypted video identifier. |
-| `string` externalChannelId | The external channel identifier. |
-| `string` commentId | The comment identifier. |
-| `string` atrChallenge | The ATR challenge string. |
-| `Dictionary<string, object>` additionalProperties | Any additional properties that are not explicitly defined. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) c | The 'c' parameter. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) e | The 'e' content binding type. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) encryptedVideoId | The encrypted video identifier. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) externalChannelId | The external channel identifier. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) commentId | The comment identifier. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) atrChallenge | The ATR challenge string. |
+| [`Dictionary<string, object>`](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2) additionalProperties | Any additional properties that are not explicitly defined. |
 
 
 
@@ -37,35 +37,35 @@ public BotGuardContentBinding(
 
 ### C
 The 'c' parameter.
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `False`
 
 ### E
 The 'e' content binding type.
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `False`
 
 ### EncryptedVideoId
 The encrypted video identifier.
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `False`
 
 ### ExternalChannelId
 The external channel identifier.
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `False`
 
 ### CommentId
 The comment identifier.
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `False`
 
 ### AtrChallenge
 The ATR challenge string.
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `False`
 
 ### AdditionalProperties
 Any additional properties that are not explicitly defined.
-- **Type:** [System.Collections.Generic.Dictionary<System.String, System.Object>](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary<string, object>)
+- **Type:** [Dictionary<string, object>](https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2)
 - **Is Read Only:** `False`

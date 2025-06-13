@@ -7,6 +7,7 @@ dir:
 
 
 # YouTubeSessionGenerator\.Js
+Contains models, exceptions and interfaces related to JavaScript environments.
 - **Type:** Namespace
 - **Namespace:** [YouTubeSessionGenerator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/)
 
@@ -14,7 +15,7 @@ dir:
 ## Namespaces
 | Namespace | Summary |
 | --------- | ------- |
-| [YouTubeSessionGenerator.Js.Environments](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/Environments/) | |
+| [YouTubeSessionGenerator.Js.Environments](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/Environments/) | Contains default JavaScript environments. |
 
 ## Interfaces
 | Interface | Summary |

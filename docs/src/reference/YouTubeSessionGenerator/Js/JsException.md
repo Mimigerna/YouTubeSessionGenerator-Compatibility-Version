@@ -17,8 +17,8 @@ public JsException(
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| `string` message | The message returned by the JavaScript engine. |
-| `JsScript` script | The original JavaScript script which caused the exception. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) message | The message returned by the JavaScript engine. |
+| [`JsScript`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsScript.html) script | The original JavaScript script which caused the exception. |
 
 Initializes a new instance of the [JsException](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsException.html) class with a specified error message and inner exception.
 ```cs
@@ -29,9 +29,9 @@ public JsException(
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| `string` message | The message returned by the JavaScript engine. |
-| `Exception` innerException | The exception that is the cause of this exception. |
-| `JsScript` script | The original JavaScript script which caused the exception. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) message | The message returned by the JavaScript engine. |
+| [`Exception`](https://learn.microsoft.com/dotnet/api/system.exception) innerException | The exception that is the cause of this exception. |
+| [`JsScript`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsScript.html) script | The original JavaScript script which caused the exception. |
 
 
 
@@ -41,37 +41,37 @@ public JsException(
 
 ### Script
 The original JavaScript script which caused the exception.
-- **Type:** [YouTubeSessionGenerator.Js.JsScript](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsScript.html)
+- **Type:** [JsScript](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsScript.html)
 - **Is Read Only:** `True`
 
 ### TargetSite
-- **Type:** [System.Reflection.MethodBase](https://learn.microsoft.com/dotnet/api/system.reflection.methodbase)
+- **Type:** [MethodBase](https://learn.microsoft.com/dotnet/api/system.reflection.methodbase)
 - **Is Read Only:** `True`
 
 ### Message
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `True`
 
 ### Data
-- **Type:** [System.Collections.IDictionary](https://learn.microsoft.com/dotnet/api/system.collections.idictionary)
+- **Type:** [IDictionary](https://learn.microsoft.com/dotnet/api/system.collections.idictionary)
 - **Is Read Only:** `True`
 
 ### InnerException
-- **Type:** [System.Exception](https://learn.microsoft.com/dotnet/api/system.exception)
+- **Type:** [Exception](https://learn.microsoft.com/dotnet/api/system.exception)
 - **Is Read Only:** `True`
 
 ### HelpLink
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `False`
 
 ### Source
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `False`
 
 ### HResult
-- **Type:** [System.Int32](https://learn.microsoft.com/dotnet/api/system.int)
+- **Type:** [int](https://learn.microsoft.com/dotnet/api/system.int)
 - **Is Read Only:** `False`
 
 ### StackTrace
-- **Type:** [System.String](https://learn.microsoft.com/dotnet/api/system.string)
+- **Type:** [string](https://learn.microsoft.com/dotnet/api/system.string)
 - **Is Read Only:** `True`

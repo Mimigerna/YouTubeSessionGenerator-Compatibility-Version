@@ -17,7 +17,7 @@ public NodeEnvironment(
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| `string` fileName | The path to the Node.js executable. Use <c>"node"</c> to rely on the system's PATH. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) fileName | The path to the Node.js executable. Use <c>"node"</c> to rely on the system's PATH. |
 
 
 
@@ -37,7 +37,7 @@ public Task<string> ExecuteAsync(
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| `JsScript` script | The [JsScript](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsScript.html) to execute. |
+| [`JsScript`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsScript.html) script | The [JsScript](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsScript.html) to execute. |
 
 
 

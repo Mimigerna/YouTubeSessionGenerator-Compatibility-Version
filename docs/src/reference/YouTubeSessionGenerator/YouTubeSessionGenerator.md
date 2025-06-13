@@ -15,7 +15,7 @@ public YouTubeSessionGenerator(
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| `YouTubeSessionConfig` config | The configuration for this YouTube session generator |
+| [`YouTubeSessionConfig`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html) config | The configuration for this YouTube session generator |
 
 
 
@@ -29,7 +29,7 @@ public Task<string> CreateVisitorDataAsync(
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| *(optional)* `CancellationToken` cancellationToken | The token to cancel this task. |
+| *(optional)* [`CancellationToken`](https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken) cancellationToken | The token to cancel this task. |
 
 ### CreateRolloutTokenAsync
 Generates rollout token for a YouTube session.
@@ -39,19 +39,21 @@ public Task<string> CreateRolloutTokenAsync(
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| *(optional)* `CancellationToken` cancellationToken | The token to cancel this task. |
+| *(optional)* [`CancellationToken`](https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken) cancellationToken | The token to cancel this task. |
 
 ### CreateProofOfOriginTokenAsync
 Generates a Proof of Origin Token (PoToken) for a YouTube session.
 ```cs
 public Task<string> CreateProofOfOriginTokenAsync(
   string visitorData, 
+  BotGuardContentBinding contentBinding, 
   CancellationToken cancellationToken)
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| `string` visitorData | The Visitor Data connected to this proof of origin token. |
-| *(optional)* `CancellationToken` cancellationToken | The token to cancel this task. |
+| [`string`](https://learn.microsoft.com/dotnet/api/system.string) visitorData | The Visitor Data connected to this proof of origin token. |
+| *(optional)* [`BotGuardContentBinding`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/BotGuard/BotGuardContentBinding.html) contentBinding | The content to which the Proof of Origin token is bound. |
+| *(optional)* [`CancellationToken`](https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken) cancellationToken | The token to cancel this task. |
 
 
 
@@ -59,5 +61,5 @@ public Task<string> CreateProofOfOriginTokenAsync(
 
 ### Config
 The configuration for this YouTube session generator.
-- **Type:** [YouTubeSessionGenerator.YouTubeSessionConfig](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html)
+- **Type:** [YouTubeSessionConfig](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html)
 - **Is Read Only:** `True`

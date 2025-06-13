@@ -7,14 +7,15 @@ dir:
 
 
 # YouTubeSessionGenerator
+The root namespace.
 - **Type:** Namespace
 
 
 ## Namespaces
 | Namespace | Summary |
 | --------- | ------- |
-| [YouTubeSessionGenerator.Js](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/) | |
-| [YouTubeSessionGenerator.BotGuard](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/BotGuard/) | |
+| [YouTubeSessionGenerator.Js](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/) | Contains models, exceptions and interfaces related to JavaScript environments. |
+| [YouTubeSessionGenerator.BotGuard](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/BotGuard/) | Contains models and exceptions related to BotGuard. |
 
 ## Classes
 | Class | Summary |

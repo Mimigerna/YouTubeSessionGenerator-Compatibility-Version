@@ -7,6 +7,7 @@ dir:
 
 
 # YouTubeSessionGenerator\.Js\.Environments
+Contains default JavaScript environments.
 - **Type:** Namespace
 - **Namespace:** [YouTubeSessionGenerator.Js](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/)
 

@@ -18,7 +18,7 @@ public abstract Task<string> ExecuteAsync(
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| `JsScript` script | The [JsScript](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsScript.html) to execute. |
+| [`JsScript`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsScript.html) script | The [JsScript](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/JsScript.html) to execute. |
 
 
 

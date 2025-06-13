@@ -20,15 +20,15 @@ public YouTubeSessionConfig()
 
 ### JsEnvironment
 The JavaScript environment used to execute scripts for generating PoTokens.
-- **Type:** [YouTubeSessionGenerator.Js.IJsEnvironment](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/IJsEnvironment.html)
+- **Type:** [IJsEnvironment](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/IJsEnvironment.html)
 - **Is Read Only:** `False`
 
 ### HttpClient
 The HTTP client used to send requests to YouTube.
-- **Type:** [System.Net.Http.HttpClient](https://learn.microsoft.com/dotnet/api/system.net.http.httpclient)
+- **Type:** [HttpClient](https://learn.microsoft.com/dotnet/api/system.net.http.httpclient)
 - **Is Read Only:** `False`
 
 ### Logger
 The logger used to provide progress and error messages.
-- **Type:** [Microsoft.Extensions.Logging.ILogger](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger)
+- **Type:** [ILogger](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger)
 - **Is Read Only:** `False`
