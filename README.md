@@ -28,7 +28,7 @@
 ## ✨ Features
 - **Trusted Sessions**: Generate sessions that pass YouTube’s anti-bot checks - unlock access to protected endpoints
 - **Easy to Use**: Just a few lines of code required - no need to worry about the low-level details
-- **Configurable**: Built for .NET with flexible config & pluggable JS environment support - no browser needed‎
+- **Configurable**: Built for .NET with flexible config & pluggable JS environment support - no browser needed
 <br><br>
 
 ## 🚀 Getting Started
@@ -64,7 +64,6 @@ YouTube uses several internal tokens to validate client requests. This library r
 
 Fore more details, see [here](https://icysnex.github.io/YouTubeSessionGenerator/guide/).
 <br><br>
-
 
 ## 🙏 Credits
 This library was made possible thanks to the incredible reverse-engineering work and research by the open-source community, especially those who uncovered and shared insights into YouTube’s internal APIs.
