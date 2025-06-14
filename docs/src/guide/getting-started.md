@@ -15,16 +15,21 @@ If you haven't installed the library yet, head over to the [Installation page](i
 To start generating session tokens like **Visitor Data**, **Proof of Origin Tokens** or **Rollout Tokens**, you'll first need to initialize an instance of [`YouTubeSessionGenerator`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionGenerator.html) with a configuration:
 ```cs
 using YouTubeSessionGenerator;
-using YouTubeSessionGenerator.Js.Environments;
 
 YouTubeSessionConfig config = new()
 {
-    JsEnvironment = new NodeEnvironment(),  // Required when generating Proof of Origin Tokens
-    HttpClient = myCustomHttpClient,        // Optional: provide your own HttpClient
-    Logger = myCustomLogger                 // Optional: enable logging
+    JsEnvironment = myCustomJsEnvironment,  // Required when generating Proof of Origin Tokens
+    HttpClient = myCustomHttpClient,        // Optional: Provide your own HttpClient
+    Logger = myCustomLogger                 // Optional: Enable logging
 };
 YouTubeSessionGenerator generator = new(config);
 ```
+
+::: danger
+If you're passing a [`JsEnvironment`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html#jsenvironment), you are **responsible** for disposing it! For example, the built-in [`NodeEnvironment`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/Environments/NodeEnvironment.html) spawns a subprocess that won't be closed until **disposed**.
+
+Use a `using` statement or manually call `.Dispose()` in a `try/finally` block when done.
+:::
 
 
 ## 2. Generate Session Tokens

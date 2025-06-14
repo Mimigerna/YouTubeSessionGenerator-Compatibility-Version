@@ -41,11 +41,13 @@ dotnet add package YouTubeSessionGenerator
 using YouTubeSessionGenerator;
 using YouTubeSessionGenerator.Js.Environments;
 
+using NodeEnvironment myCustomJsEnvironment = new(); // Make sure this gets dispoed!
+
 YouTubeSessionConfig config = new()
 {
-    JsEnvironment = new NodeEnvironment(),  // Required when generating Proof of Origin Tokens
-    HttpClient = myCustomHttpClient,        // Optional: provide your own HttpClient
-    Logger = myCustomLogger                 // Optional: enable logging
+    JsEnvironment = myCustomJsEnvironment,  // Required when generating Proof of Origin Tokens
+    HttpClient = myCustomHttpClient,        // Optional: Provide your own HttpClient
+    Logger = myCustomLogger                 // Optional: Enable logging
 };
 YouTubeSessionGenerator generator = new(config);
 

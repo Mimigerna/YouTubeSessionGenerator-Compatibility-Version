@@ -7,12 +7,14 @@ order: 4
 The [`YouTubeSessionGenerator`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionGenerator.html) class can be customized using the [`YouTubeSessionConfig`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html) object passed to its constructor. This page outlines all available options and how to use them effectively.
 
 ```cs
-YouTubeSessionGenerator generator = new(new YouTubeSessionConfig()
+using YouTubeSessionGenerator;
+
+YouTubeSessionConfig config = new()
 {
-    JsEnvironment = new NodeEnvironment(),  // or any custom IJsEnvironment
-    HttpClient = new HttpClient(),
-    Logger = logger
-});
+    JsEnvironment = myCustomJsEnvironment,  // Required when generating Proof of Origin Tokens
+    HttpClient = myCustomHttpClient,        // Optional: Provide your own HttpClient
+    Logger = myCustomLogger                 // Optional: Enable logging
+};
 ```
 
 
@@ -25,8 +27,16 @@ To generate a [Proof of Origin Token](../guide/#proof-of-origin-token) and bypas
 ```cs
 using YouTubeSessionGenerator.Js.Environments;
 
-config.JsEnvironment = new NodeEnvironment("C:\\Program Files\\nodejs\\node.exe");
+using NodeEnvironment nodeEnvironment = new("C:\\Program Files\\nodejs\\node.exe");
+config.JsEnvironment = nodeEnvironment;
 ```
+
+::: danger
+If you're passing a [`JsEnvironment`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html#jsenvironment), you are **responsible** for disposing it! For example, the built-in [`NodeEnvironment`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/Environments/NodeEnvironment.html) spawns a subprocess that won't be closed until **disposed**.
+
+Use a `using` statement or manually call `.Dispose()` in a `try/finally` block when done.
+:::
+
 
 #### Built-in
 The built-in environment uses [Node.js](https://nodejs.org) under the hood, and supports Windows, Linux & macOS.
@@ -75,15 +85,11 @@ You can inject a shared or customized HTTP client into the [`YouTubeSessionGener
 ```cs
 using System.Net;
 
-HttpClientHandler proxyHandler = new()
-{
-    Proxy = new WebProxy("http://proxyserver:80/", true)
-};
-
-config.HttpClient = new(proxyHandler)
+using HttpClient httpClient = new(new HttpClientHandler() { Proxy = new WebProxy("http:/‎/proxyserver:80/", true) })
 {
     Timeout = TimeSpan.FromSeconds(30)
 };
+config.HttpClient = httpClient;
 ```
 
 
@@ -95,10 +101,9 @@ config.HttpClient = new(proxyHandler)
 ```cs
 using Microsoft.Extensions.Logging;
 
-ILoggerFactory factory = LoggerFactory.Create(builder =>
+using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
 {
     builder.AddConsole();
 });
-
-config.Logger = factory.CreateLogger("YouTubeSessionGenerator");
+config.Logger = loggerFactory.CreateLogger("YouTubeSessionGenerator");
 ```
