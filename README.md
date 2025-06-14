@@ -7,7 +7,7 @@
       <h1>YouTubeSessionGenerator</h1>
       <p>Generate valid trusted sessions for YouTube including VisitorData, PoTokens & RolloutTokens.</p>
       <h3>
-        <a href="https://icysnex.github.io/YouTubeSessionGenerator/license.html">
+        <a href="https://icysnex.github.io/YouTubeSessionGenerator/">
           <img alt="Documentation" src="https://img.shields.io/badge/Documentation-c44f4f?style=for-the-badge">
         </a>
         <span> ˙ </span>
