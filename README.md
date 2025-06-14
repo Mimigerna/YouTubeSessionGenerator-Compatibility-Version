@@ -12,7 +12,7 @@
         </a>
         <span> ˙ </span>
         <a href="https://www.nuget.org/packages/YouTubeSessionGenerator">
-          <img alt="NuGet Version" src="https://img.shields.io/nuget/v/YouTubeMusicAPI?style=for-the-badge&color=c44f4f">
+          <img alt="NuGet Version" src="https://img.shields.io/nuget/v/YouTubeSessionGenerator?style=for-the-badge&color=c44f4f">
         </a>
         <span> ˙ </span>
         <a href="https://icysnex.github.io/YouTubeSessionGenerator/license.html">
