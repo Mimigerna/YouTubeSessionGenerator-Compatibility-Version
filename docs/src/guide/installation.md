@@ -4,7 +4,7 @@ icon: icon-park-solid:install
 order: 2
 ---
 
-YouTubeSessionGenerator is available as a [NuGet package](https://www.nuget.org/packages/YouTubeSessionGenerator) and can be easily added to your .NET project.
+**YouTubeSessionGenerator** is available as a [NuGet package](https://www.nuget.org/packages/YouTubeSessionGenerator) and can be easily added to your .NET project.
 
 ::: code-tabs
 
@@ -32,11 +32,11 @@ NuGet\Install-Package YouTubeSessionGenerator
 ## Prerequisites
 
 - .NET 9.0 or later
-- **Proof of Origin Token** generation requires a JavaScript environment. The built-in `NodeEnvironment` supports Windows, Linux & macOS, but you can plug in your own if needed. [Learn more here](configuration.html).
+- **Proof of Origin Token** generation requires a JavaScript environment. The built-in [`NodeEnvironment`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/Js/Environments/NodeEnvironment.html) supports Windows, Linux & macOS, but you can plug in your own if needed. [Learn more here](configuration.html#jsenvironment).
 
 
 ## Optional: Build from Source
-If you want to build the library from source instead of using the precompiled binaries or NuGet package, follow these steps:
+If you want to build the library from source instead of using the [precompiled binaries](https://github.com/IcySnex/YouTubeSessionGenerator/releases) or [NuGet package](https://www.nuget.org/packages/YouTubeSessionGenerator), follow these steps:
 
 #### 1. Clone the repository
 ```bash
@@ -55,4 +55,4 @@ dotnet build -c Release
 ```
 
 #### 4. Reference the built DLL
-You can reference the built DLL(s) from the bin/Release folder in your projects.
+Now you can reference the built DLL from the `bin/Release` folder in your projects.

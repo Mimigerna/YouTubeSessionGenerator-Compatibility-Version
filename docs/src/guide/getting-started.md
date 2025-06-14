@@ -12,7 +12,7 @@ If you haven't installed the library yet, head over to the [Installation page](i
 
 
 ## 1. Create an instance
-To start generating session tokens like **Visitor Data**, **Proof of Origin Tokens** or **Rollout Tokens**, you'll first need to initialize an instance of [`YouTubeSessionGenerator`](/YouTubeSessionGenerator/YouTubeSessionGenerator.cs) with a configuration:
+To start generating session tokens like **Visitor Data**, **Proof of Origin Tokens** or **Rollout Tokens**, you'll first need to initialize an instance of [`YouTubeSessionGenerator`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionGenerator.html) with a configuration:
 ```cs
 using YouTubeSessionGenerator;
 using YouTubeSessionGenerator.Js.Environments;
@@ -28,7 +28,7 @@ YouTubeSessionGenerator generator = new(config);
 
 
 ## 2. Generate Session Tokens
-Once we have an instance of [`YouTubeSessionGenerator`](/YouTubeSessionGenerator/YouTubeSessionGenerator.cs), we can start generating the session tokens:
+Once we have an instance of [`YouTubeSessionGenerator`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionGenerator.html), we can start generating the session tokens:
 
 #### Generate Visitor Data
 ```cs
