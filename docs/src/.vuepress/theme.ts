@@ -5,7 +5,7 @@ import sidebar from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "localhost",
-  docsDir: "src",
+  docsDir: "docs/src",
 
   author: {
     name: "IcySnex",
