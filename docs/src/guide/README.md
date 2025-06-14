@@ -12,7 +12,7 @@ This library is especially useful for services, automation tools, or projects th
 
 
 ## Session Tokens Explained
-The tokens - **Visitor Data**, **Proof of Origin Token** & **Rollout Token** - are part of YouTube's internal session and request validation framework, mostly used by the web and mobile frontends. While not officially documented by Google, through reverese engineering by the community and consistent behavior across endpoints, we can understand what they are and how they work.
+The tokens - **Visitor Data**, **Proof of Origin Token** & **Rollout Token** - are part of YouTube's internal session and request validation framework, mostly used by the web frontend. While not officially documented by Google, through reverese engineering by the community and consistent behavior across endpoints, we can understand what they are and how they work.
 
 ### Visitor Data
 A unique session identifier assigned to a client.
