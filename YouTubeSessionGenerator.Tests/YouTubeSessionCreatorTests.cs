@@ -3,14 +3,14 @@ using YouTubeSessionGenerator.Js.Environments;
 
 namespace YouTubeSessionGenerator.Tests;
 
-public class YouTubeSessionGeneratorTests
+public class YouTubeSessionCreatorTests
 {
     [Test]
     public void Should_generate_session()
     {
         // Arrange
         using IJsEnvironment environment = new NodeEnvironment();
-        YouTubeSessionGenerator generator = new(new() { JsEnvironment = environment });
+        YouTubeSessionCreator creator = new(new() { JsEnvironment = environment });
 
         // Act
         string? visitorData = null;
@@ -19,9 +19,9 @@ public class YouTubeSessionGeneratorTests
 
         Assert.DoesNotThrowAsync(async () =>
         {
-            visitorData = await generator.CreateVisitorDataAsync();
-            rolloutToken = await generator.CreateRolloutTokenAsync();
-            proofOfOriginToken = await generator.CreateProofOfOriginTokenAsync(visitorData);
+            visitorData = await creator.VisitorDataAsync();
+            rolloutToken = await creator.RolloutTokenAsync();
+            proofOfOriginToken = await creator.ProofOfOriginTokenAsync(visitorData);
         });
 
         // Assert
@@ -43,14 +43,14 @@ public class YouTubeSessionGeneratorTests
     public void Should_generate_visior_data()
     {
         // Arrange
-        YouTubeSessionGenerator generator = new(new());
+        YouTubeSessionCreator creator = new(new());
 
         // Act
         string? visitorData = null;
 
         Assert.DoesNotThrowAsync(async () =>
         {
-            visitorData = await generator.CreateVisitorDataAsync();
+            visitorData = await creator.VisitorDataAsync();
         });
 
         // Assert
@@ -64,14 +64,14 @@ public class YouTubeSessionGeneratorTests
     public void Should_generate_rollout_token()
     {
         // Arrange
-        YouTubeSessionGenerator generator = new(new());
+        YouTubeSessionCreator creator = new(new());
 
         // Act
         string? rolloutToken = null;
 
         Assert.DoesNotThrowAsync(async () =>
         {
-            rolloutToken = await generator.CreateRolloutTokenAsync();
+            rolloutToken = await creator.RolloutTokenAsync();
         });
 
         // Assert
@@ -89,14 +89,14 @@ public class YouTubeSessionGeneratorTests
     {
         // Arrange
         using IJsEnvironment environment = new NodeEnvironment();
-        YouTubeSessionGenerator generator = new(new() { JsEnvironment = environment });
+        YouTubeSessionCreator creator = new(new() { JsEnvironment = environment });
 
         // Act
         string? proofOfOriginToken = null;
 
         Assert.DoesNotThrowAsync(async () =>
         {
-            proofOfOriginToken = await generator.CreateProofOfOriginTokenAsync(visitorData);
+            proofOfOriginToken = await creator.ProofOfOriginTokenAsync(visitorData);
         });
 
         // Assert

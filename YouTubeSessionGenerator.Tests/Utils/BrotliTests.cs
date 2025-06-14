@@ -1,6 +1,6 @@
 ﻿using YouTubeSessionGenerator.Utils;
 
-namespace YouTubeSessionGenerator.Tests;
+namespace YouTubeSessionGenerator.Tests.Utils;
 
 public class BrotliTests
 {

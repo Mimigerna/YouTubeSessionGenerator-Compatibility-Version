@@ -12,15 +12,15 @@ namespace YouTubeSessionGenerator;
 /// <summary>
 /// Contains methods to generate valid trusted sessions for YouTube including Visitor Data, Proof of Origin Tokens &amp; Rollout Tokens.
 /// </summary>
-public class YouTubeSessionGenerator
+public class YouTubeSessionCreator
 {
     readonly BotGuardClient? botGuardClient;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="YouTubeSessionGenerator"/> class.
+    /// Initializes a new instance of the <see cref="YouTubeSessionCreator"/> class.
     /// </summary>
-    /// <param name="config">The configuration for this YouTube session generator</param>
-    public YouTubeSessionGenerator(
+    /// <param name="config">The configuration for this YouTube session creator</param>
+    public YouTubeSessionCreator(
         YouTubeSessionConfig? config = null)
     {
         Config = config ?? new YouTubeSessionConfig();
@@ -31,7 +31,7 @@ public class YouTubeSessionGenerator
 
 
     /// <summary>
-    /// The configuration for this YouTube session generator.
+    /// The configuration for this YouTube session creator.
     /// </summary>
     public YouTubeSessionConfig Config { get; }
 
@@ -66,7 +66,7 @@ public class YouTubeSessionGenerator
     /// <exception cref="InvalidDataException">Occurs when the visitor data could not be extracted from the HTML content.</exception>"
     /// <exception cref="HttpRequestException">Occurs when the HTTP request fails.</exception>"
     /// <exception cref="OperationCanceledException">Occurs when this task was cancelled.</exception>
-    public Task<string> CreateVisitorDataAsync(
+    public Task<string> VisitorDataAsync(
         CancellationToken cancellationToken = default) =>
         ExtractContextPropertyAsync("visitorData", cancellationToken);
 
@@ -78,7 +78,7 @@ public class YouTubeSessionGenerator
     /// <exception cref="InvalidDataException">Occurs when the visitor data could not be extracted from the HTML content.</exception>"
     /// <exception cref="HttpRequestException">Occurs when the HTTP request fails.</exception>"
     /// <exception cref="OperationCanceledException">Occurs when this task was cancelled.</exception>
-    public Task<string> CreateRolloutTokenAsync(
+    public Task<string> RolloutTokenAsync(
         CancellationToken cancellationToken = default) =>
         ExtractContextPropertyAsync("rolloutToken", cancellationToken);
 
@@ -95,7 +95,7 @@ public class YouTubeSessionGenerator
     /// <exception cref="BotGuardException">Occurs when the internal BotGuard client failes to produce a result.</exception>
     /// <exception cref="JsException">Occurs when the JavaScript environment throws an error.</exception>
     /// <exception cref="OperationCanceledException">Occurs when this task was cancelled.</exception>
-    public async Task<string> CreateProofOfOriginTokenAsync(
+    public async Task<string> ProofOfOriginTokenAsync(
         string visitorData,
         BotGuardContentBinding? contentBinding = null,
         CancellationToken cancellationToken = default)

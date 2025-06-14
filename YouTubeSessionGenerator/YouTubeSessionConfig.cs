@@ -4,7 +4,7 @@ using YouTubeSessionGenerator.Js;
 namespace YouTubeSessionGenerator;
 
 /// <summary>
-/// Contains configuration options for the YouTube session generator.
+/// Contains configuration options for the YouTube session creator.
 /// </summary>
 /// <remarks>
 /// Initializes a new instance of the <see cref="YouTubeSessionConfig"/> class.
