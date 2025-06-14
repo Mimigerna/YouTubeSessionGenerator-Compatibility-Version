@@ -20,6 +20,6 @@ The root namespace.
 ## Classes
 | Class | Summary |
 | ----- | ------- |
-| [YouTubeSessionConfig](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html) | Contains configuration options for the YouTube session generator. |
-| [YouTubeSessionGenerator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionGenerator.html) | Contains methods to generate valid trusted sessions for YouTube including Visitor Data, Proof of Origin Tokens &amp; Rollout Tokens. |
+| [YouTubeSessionConfig](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html) | Contains configuration options for the YouTube session creator. |
+| [YouTubeSessionCreator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionCreator.html) | Contains methods to generate valid trusted sessions for YouTube including Visitor Data, Proof of Origin Tokens &amp; Rollout Tokens. |
 

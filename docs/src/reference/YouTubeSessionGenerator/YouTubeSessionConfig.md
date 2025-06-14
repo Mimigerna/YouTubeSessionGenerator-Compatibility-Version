@@ -1,5 +1,5 @@
 ﻿# YouTubeSessionConfig
-Contains configuration options for the YouTube session generator.
+Contains configuration options for the YouTube session creator.
 - **Type:** Class
 - **Namespace:** [YouTubeSessionGenerator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/)
 ```cs

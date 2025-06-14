@@ -12,7 +12,7 @@ If you haven't installed the library yet, head over to the [Installation page](i
 
 
 ## 1. Create an instance
-To start generating session tokens like **Visitor Data**, **Proof of Origin Tokens** or **Rollout Tokens**, you'll first need to initialize an instance of [`YouTubeSessionGenerator`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionGenerator.html) with a configuration:
+To start generating session tokens like **Visitor Data**, **Proof of Origin Tokens** or **Rollout Tokens**, you'll first need to initialize an instance of [YouTubeSessionCreator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionCreator.html) with a configuration:
 ```cs
 using YouTubeSessionGenerator;
 
@@ -22,7 +22,7 @@ YouTubeSessionConfig config = new()
     HttpClient = myCustomHttpClient,        // Optional: Provide your own HttpClient
     Logger = myCustomLogger                 // Optional: Enable logging
 };
-YouTubeSessionGenerator generator = new(config);
+YouTubeSessionCreator creator = new(config);
 ```
 
 ::: danger
@@ -33,22 +33,22 @@ Use a `using` statement or manually call `.Dispose()` in a `try/finally` block w
 
 
 ## 2. Generate Session Tokens
-Once we have an instance of [`YouTubeSessionGenerator`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionGenerator.html), we can start generating the session tokens:
+Once we have an instance of [YouTubeSessionCreator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionCreator.html), we can start generating the session tokens:
 
 #### Generate Visitor Data
 ```cs
-string visitorData = await generator.CreateVisitorDataAsync();
+string visitorData = await creator.VisitorDataAsync();
 ```
 
 #### Generate Proof of Origin Token
 ```cs
 // Requires a JavaScript environment!
-string poToken = await generator.CreateProofOfOriginTokenAsync(visitorData);
+string poToken = await creator.ProofOfOriginTokenAsync(visitorData);
 ```
 
 #### Generate Rollout Token
 ```cs
-string rolloutToken = await generator.CreateRolloutTokenAsync();
+string rolloutToken = await creator.RolloutTokenAsync();
 ```
 
 

@@ -1,50 +1,50 @@
-﻿# YouTubeSessionGenerator
+﻿# YouTubeSessionCreator
 Contains methods to generate valid trusted sessions for YouTube including Visitor Data, Proof of Origin Tokens &amp; Rollout Tokens.
 - **Type:** Class
 - **Namespace:** [YouTubeSessionGenerator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/)
 ```cs
-public class YouTubeSessionGenerator
+public class YouTubeSessionCreator
 ```
 
 
 ## Constructors
-Initializes a new instance of the [YouTubeSessionGenerator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionGenerator.html) class.
+Initializes a new instance of the [YouTubeSessionCreator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionCreator.html) class.
 ```cs
-public YouTubeSessionGenerator(
+public YouTubeSessionCreator(
   YouTubeSessionConfig config)
 ```
 | Parameter | Summary |
 | --------- | ------- |
-| [`YouTubeSessionConfig`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html) config | The configuration for this YouTube session generator |
+| [`YouTubeSessionConfig`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html) config | The configuration for this YouTube session creator |
 
 
 
 ## Methods
 
-### CreateVisitorDataAsync
+### VisitorDataAsync
 Generates Visitor Data for a YouTube session.
 ```cs
-public Task<string> CreateVisitorDataAsync(
+public Task<string> VisitorDataAsync(
   CancellationToken cancellationToken)
 ```
 | Parameter | Summary |
 | --------- | ------- |
 | *(optional)* [`CancellationToken`](https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken) cancellationToken | The token to cancel this task. |
 
-### CreateRolloutTokenAsync
+### RolloutTokenAsync
 Generates rollout token for a YouTube session.
 ```cs
-public Task<string> CreateRolloutTokenAsync(
+public Task<string> RolloutTokenAsync(
   CancellationToken cancellationToken)
 ```
 | Parameter | Summary |
 | --------- | ------- |
 | *(optional)* [`CancellationToken`](https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken) cancellationToken | The token to cancel this task. |
 
-### CreateProofOfOriginTokenAsync
+### ProofOfOriginTokenAsync
 Generates a Proof of Origin Token (PoToken) for a YouTube session.
 ```cs
-public Task<string> CreateProofOfOriginTokenAsync(
+public Task<string> ProofOfOriginTokenAsync(
   string visitorData, 
   BotGuardContentBinding contentBinding, 
   CancellationToken cancellationToken)
@@ -60,6 +60,6 @@ public Task<string> CreateProofOfOriginTokenAsync(
 ## Properties
 
 ### Config
-The configuration for this YouTube session generator.
+The configuration for this YouTube session creator.
 - **Type:** [YouTubeSessionConfig](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html)
 - **Is Read Only:** `True`

@@ -49,11 +49,11 @@ YouTubeSessionConfig config = new()
     HttpClient = myCustomHttpClient,        // Optional: Provide your own HttpClient
     Logger = myCustomLogger                 // Optional: Enable logging
 };
-YouTubeSessionGenerator generator = new(config);
+YouTubeSessionCreator creator = new(config);
 
-string visitorData = await generator.CreateVisitorDataAsync();
-string poToken = await generator.CreateProofOfOriginTokenAsync(visitorData);
-string rolloutToken = await generator.CreateRolloutTokenAsync();
+string visitorData = await creator.VisitorDataAsync();
+string poToken = await creator.ProofOfOriginTokenAsync(visitorData);
+string rolloutToken = await creator.RolloutTokenAsync();
 ```
 To learn more, visit the full [Getting Started](https://icysnex.github.io/YouTubeSessionGenerator/guide/getting-started.html) & [Configuration](https://icysnex.github.io/YouTubeSessionGenerator/guide/configuration.html) Guide.
 <br><br>

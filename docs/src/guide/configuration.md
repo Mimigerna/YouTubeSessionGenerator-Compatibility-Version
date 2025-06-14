@@ -4,7 +4,7 @@ icon: weui:setting-filled
 order: 4
 ---
 
-The [`YouTubeSessionGenerator`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionGenerator.html) class can be customized using the [`YouTubeSessionConfig`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html) object passed to its constructor. This page outlines all available options and how to use them effectively.
+The  [YouTubeSessionCreator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionCreator.html) class can be customized using the [`YouTubeSessionConfig`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionConfig.html) object passed to its constructor. This page outlines all available options and how to use them effectively.
 
 ```cs
 using YouTubeSessionGenerator;
@@ -78,7 +78,7 @@ Make sure your custom environment supports the [DOM](https://de.wikipedia.org/wi
 
 
 ## HttpClient
-You can inject a shared or customized HTTP client into the [`YouTubeSessionGenerator`](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionGenerator.html), e.g., for timeouts or proxy support. This client is used to send all HTTP requests to YouTube and Google servers.
+You can inject a shared or customized HTTP client into the  [YouTubeSessionCreator](/YouTubeSessionGenerator/reference/YouTubeSessionGenerator/YouTubeSessionCreator.html), e.g., for timeouts or proxy support. This client is used to send all HTTP requests to YouTube and Google servers.
 - Type: [`HttpClient`](https://learn.microsoft.com/dotnet/api/system.net.http.httpclient)
 - if omitted, a default instance will be created.
 
