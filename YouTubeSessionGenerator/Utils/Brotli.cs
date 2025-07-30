@@ -19,7 +19,7 @@ internal static class Brotli
         byte[] inputBytes = Encoding.UTF8.GetBytes(input);
 
         using MemoryStream outputStream = new();
-        using (BrotliStream brotliStream = new(outputStream, CompressionLevel.SmallestSize))
+        using (BrotliStream brotliStream = new(outputStream, CompressionLevel.Optimal))
             brotliStream.Write(inputBytes, 0, inputBytes.Length);
 
         byte[] compressedBytes = outputStream.ToArray();

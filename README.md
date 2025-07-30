@@ -1,3 +1,5 @@
+# A modified fork of [YouTubeSessionGenerator](https://github.com/IcySnex/YouTubeSessionGenerator) with .NET 6.0 compatibility. All credits to IcySnex.
+
 <table align="center">
   <tr>
     <td>
