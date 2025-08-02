@@ -53,18 +53,5 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.6" />
-		<PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.40">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
 	</ItemGroup>
-
-	<Target Name="ILRepacker" AfterTargets="Build">
-		<ItemGroup>
-			<InputAssemblies Include="$(OutputPath)$(MSBuildProjectName).dll" />
-			<InputAssemblies Include="$(OutputPath)Microsoft.Extensions.Logging.Abstractions.dll" />
-		</ItemGroup>
-
-		<ILRepack Parallel="true" Internalize="true" DebugInfo="true" InputAssemblies="@(InputAssemblies)" OutputFile="$(OutputPath)$(MSBuildProjectName).dll" TargetKind="Dll" LibraryPath="$(OutputPath)" />
-	</Target>
 </Project>
